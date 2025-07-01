@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect("mongodb://localhost:27017/StudentDB")
     .then(() => console.log("MongoDB connected successfully"))
     .catch(err => console.log("MongoDB error:", err));
 
