@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<style>
+/* General Styles */
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:linear-gradient(to right, #afaf7070,rgba(64, 70, 64, 0.438) ,#412d2d36,#975a5a80, #70527057) ;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}.navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: burlywood;
+}
+
+/* Navigation Bar */
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 100%;
+max-width: 1200px;
+
+}
+
+nav ul li{
+    text-decoration: none;
+    display: block;
+    line-height: 20px;
+
+}nav ul{
+    display: inline-flex;
+    gap:30px;
+    background-color: hwb(36 15% 9% / 0.39);
+width: 100vw;
+position: absolute;
+left:0;
+border-radius: 5px;
+padding: 10px;
+line-height: 10px;
+
+}
+
+nav .logo{
+    display: inline-block;
+    justify-content: space-around;
+color: cadetblue;
+position: absolute;
+left: 10px;
+top:20px;
+}
+.logo span{
+    color: coral;
+}
+.navigation li {
+    list-style: none;
+}
+
+.navigation a,
+select {
+    text-decoration: none;
+    color: rgba(126, 72, 27, 0.8);
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.navigation a:hover {
+    color: black;
+}
+
+/* Banner Section */
+
+
+/* Content Sections */
+.home2, .home3 {
+    position: relative;
+    display:flex;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 30px;
+width: 100vw;
+min-height:100vh;
+position: relative;
+}
+
+/* Floating Box */
+.box1 {
+display: none;
+    background-color: white;
+    position: relative;
+    margin-top: 50px;
+    margin-left: 30px;
+    min-width: 320px;
+    height: 450px;
+    text-align: center;
+    padding: 20px 25px;
+    line-height: 20px;
+justify-content:space-between;
+border-radius: 20px;
+border-top:35px solid black;
+border-left:35px solid black ;
+border-right:35px solid black;
+border-bottom:35px solid black;
+
+}
+
+/* Centered Elements Inside Box */
+.box1 img{
+position:absolute;
+min-width:300px;
+height: 30vh;
+left:-30px;
+object-fit: cover;
+border-radius: 30px;
+} .image1, .saveprice, .size, .bttn1, .add, .sizeprice,.sizes {
+    position: absolute;
+    left: 120px;
+}
+
+.image {
+    margin-left: 80px;
+    margin-top: 100px;
+}
+
+.image1 {
+    left:20px;
+    margin-left: 50px;
+    margin-top: 30px;
+
+    }
+    .box1 h1{
+    position: absolute;
+    bottom: 105px;
+    font-size: 20px;
+    margin: 10px;
+
+}
+
+.saveprice {
+    bottom: 100px;
+    margin: 10px;
+
+}
+
+.size {
+    bottom: 60px;
+    margin: 10px;
+
+}
+
+.bttn1 {
+    bottom: 40px;
+    margin: 10px;
+
+}
+
+.add {
+    bottom: 70px;
+}
+
+.sizeprice {
+    position: absolute;
+    bottom: 90px;
+}
+
+/* Final Touch */
+.head1 {
+    text-align: center;
+}.bttn2{
+    position: absolute;
+    right:30px;
+    top:10px;
+    width: 100px;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: aliceblue;
+    color:black;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+border-radius: 20px;
+}button{
+    border-radius: 20px;
+}
+.bttn2 a{
+    text-decoration: none;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.bttn2:focus{
+    outline: 2px solid green;
+    background-color: rgb(16, 71, 0);
+    color: aliceblue;
+}.bttn2:hover{
+    background-color: lightgreen;
+}
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}*{
+    padding: 0;
+margin: 0;
+}.card{
+ width: 750px;
+ height: 450px;
+ object-fit: cover;
+ background-color:aliceblue;
+ box-shadow:rgba(0, 0, 0, 0.486) 0px 20px 30px 35px, rgba(126, 72, 27, 0.8) 0px 10px 20px 30px ;
+ border-radius: 5px;
+ border:2;
+ box-sizing: border-box 30px;
+ display: flex;
+ 
+}.img{
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+    }.img-holder
+    {
+        min-width: 350px;
+        height: 100%;
+ overflow: hidden;
+    }.content{
+        padding: 25px 20px;
+    }.title{
+        text-decoration: underline;
+color: rgb(68, 56, 42,0.4);
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+text-underline-offset: 5px;
+text-decoration-color: #ecebf3 ;
+    }.content h3{
+        color: pink;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }.content p{
+        color: #271c6b;
+        line-height: 25px;
+    }.content span{
+        color: burlywood;
+        font-family: 'Times New Roman', Times, serif;
+        margin-top: 20px;
+        line-height: 20px;
+    }.logo{
+        display: inline-flex;
+    }.searchs{
+        width: 10vw;
+        height: 20vh;
+        position:relative;
+    
+    }
+    .search{
+        position: absolute;
+        left: 500px;
+        bottom: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border: none;
+        text-decoration: none;
+border-radius: 20px;
+    }.bttn {
+        position: absolute;
+        left: 750px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border: none;
+        text-decoration: none;
+border-radius: 20px;
+    transition: background 0.3s ease-in-out;
+    bottom: 10px;
+}
+
+.bttn:hover {
+    background-color: hwb(101 7% 15% / 0.288);
+}
+
+    .user{
+        width: 30vw;
+        height: 15vh;
+    }.user h1{
+position: absolute;
+left: 450px;
+padding: 20px;    
+    }.bttn3{
+        background-color:#271;
+        padding-inline: 20px;
+    }.mains{
+min-width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;    
+}.cards{
+    width:1000px;
+    height: 450px;
+background-color: #ecebf3;
+display: flex;
+border: 2px;
+border-radius: 20px;
+overflow: hidden;
+}.img-holders{
+    min-width: 350px;
+    height: 100%;
+    overflow: hidden;
+}.imgs{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+}.titles{
+text-transform: uppercase;
+text-overflow: clip;
+text-decoration-color: #ecebf3;
+text-underline-offset: 5px;
+text-decoration: underline;
+text-decoration-color:#ecebf3;
+}.contents{
+padding: 25px 20px;
+}.contents p{
+    color:#271c6b;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}.contents h3{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: aqua;
+}.boxs{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.carder{
+    width:750px;
+    height: 650px;
+background: lightgray;
+    object-fit: cover;
+background-repeat: no-repeat;
+box-shadow: 20px 30px 40px 20px  rgba(65, 39, 65, 0.452);
+border: 3;
+}.imager{
+    min-width:450px;
+    height: 100%;
+}.imager img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}.radio{
+
+    display: flex;
+    justify-content: center;
+        margin-top: 50px;
+gap:30px;
+}#img1,#img2,#img3,#img4{
+    display: none;
+}.mains .hide{
+    display: none;
+}.box1 svg{
+    border: 30px red;
+    width: 200px;
+    color: red;
+    position: absolute;
+    left:200px;
+}
+@media (min-width: 1500px) {
+    body {
+        width: 100%;
+        height: 100vh; /* Ensures full viewport */
+    }
+    
+    .navigation {
+        width: 50%;
+        font-size: clamp(12px, 1vw, 16px);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    li, a {
+        font-size: clamp(10px, 1vw, 14px);
+    }
+    
+    .home {
+        font-size: 12px;
+    }
+    
+    li a {
+        font-size: small;
+    }
+    
+    .c {
+        font-size: 30px;
+    }
+    
+    .wel {
+        font-size: 12px;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .bttn2 {
+        font-size: 12px;
+        padding: 15px 40px;
+    }
+    .imager {
+        width: 100%;
+        height: auto;
+        margin-right: 500px;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="user">
+        <button class="bttn2"><a href="/index">profile</a></button>
+<h1 class="wel">welcome to prasath shopping</h1>
+    </div>
+
+  <form action="/dashboard">  
+    <div class="container">
+
+   
+        <div class="navigation">
+            <nav>
+                <h2 class="logo">prasath <span>shopping</span></h2>
+                <ul class="home">
+                    <li><a href="#home" class="c">Dashboard</a></li>
+                    <li><a href="#">Offer</a></li>
+                    
+                    <li>
+                        <label for="men">Men:</label>
+                        <select name="men" id="men">
+                            <option value="shirt" id="tshirt">Shirt,tshirt</option>
+                            <option value="pants">Pant</option>
+                            <option value="jeans">Jeans</option>
+                            <option value="t-shirt">T-shirt</option>
+                            <option value="kurta">Kurta</option>
+                            <option value="offer">Offer</option>
+                            <option value="inner">Innerwear</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="slippers">Slippers</option>
+                            <option value="mens-watch">Men's Watch</option>
+                        </select>
+                    </li>
+                    
+                    <li>
+                        <label for="women">Women:</label>
+                        <select name="women" id="women">
+                            <option value="t-shirt">T-shirt,shirt</option>
+                            <option value="pant">Pant</option>
+                            <option value="jeans">Jeans</option>
+                            <option value="pavadai-thavani">Pavadai Thavani</option>
+                            <option value="inner">Innerwear</option>
+                            <option value="offer">Offer</option>
+                            <option value="shoes">Shoes</option>
+                            <option value="slippers">Slippers</option>
+                            <option value="women-watch">Women's Watch</option>
+                        </select>
+                    </li>
+
+                    <li><a href="#">Complaint</a></li>
+                    <li><a href="#">Order</a></li>
+                    <li><a href="#">Card</a></li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <button onclick="create(event)" class="bttn3">add mens</button>     
+<button onclick="womens(event)"class="bttn3">add womens</button>
+ 
+</ul>
+            </nav>
+        </div>
+        <section id="home">
+
+<div class="searchs">
+            <input type="search" class="search" id="search" placeholder="Search your shopping" ">
+            <button class="bttn"onclick="searchbar()">Search</button>
+            </div>
+ 
+            <div class="boxs">
+                <div class="carder">
+
+                    <div class="imager" id="imager">
+                        <img src="https://cdn.pixabay.com/photo/2024/05/05/05/33/ai-generated-8740239_640.jpg"id="img1" alt="">
+                        <img src="https://cdn.pixabay.com/photo/2023/05/08/22/00/tshirt-7979854_640.jpg" id="img2" alt="">
+                        <img src="https://cdn.pixabay.com/photo/2022/10/09/09/12/woman-7508618_640.jpg"id="img3" alt="">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/22/19/02/bag-1850053_640.jpg"id="img4" alt="">
+
+                                    </div>
+                                    <div class="radio">
+                                        <input type="radio" name="scroll" id="scroll1">
+                                        <input type="radio" name="scroll" id="scroll2">
+                                        <input type="radio" name="scroll" id="scroll3">
+                                        <input type="radio" name="scroll" id="scroll4">
+                                        
+                                    </div>
+                </div>
+                
+               </div> 
+            <div class="mains">
+                <div class="cards">
+                 <div class="img-holders">
+                     <img src="https://cdn.pixabay.com/photo/2022/12/30/14/54/woman-7687153_640.jpg"class="imgs" alt="">
+                 </div>
+                 <div class="contents">
+                     <span class="titles">dress</span>
+                     <h3>womens /mens</h3>
+                     <p>A T-shirt (also spelled tee shirt, or tee for short) is a style of fabric shirt named after the T shape of its body and sleeves. Traditionally, it has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of stretchy, light, and inexpensive fabric and are easy to clean. The T-shirt evolved from undergarments used in the 19th century and, in the mid-20th century, transitioned from undergarments to general-use casual clothing...</p>
+                     <span class="footer">womens</span>
+                 </div>
+                 <div class="img-holder">
+                     <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWVuJTIwZmFzaGlvbnxlbnwwfHwwfHx8MA%3D%3D" alt="" class="img">
+                 </div>
+                </div>
+                </div>
+    </div>
+    <div>
+        
+   <h1 class="head1">men's shirts</h1>
+
+        <div class="main">
+            <div class="card">
+                <div class="img-holder">
+                    <img src="https://media.istockphoto.com/id/1830111752/photo/black-t-shirt-short-sleeve-mockup.webp?a=1&b=1&s=612x612&w=0&k=20&c=vm0iiyFYBSSYTagEAgwJH0ESP5ZYMo-Vw6EmF9XOSUw="class="img" alt="">
+                </div>
+                <div class="content">
+                    <span class="title">men dress</span>
+                <h3>welcome to shopping pages</h3>
+                <p>A T-shirt (also spelled tee shirt, or tee for short) is a style of fabric shirt named after the T shape of its body and sleeves. Traditionally, it has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of stretchy, light, and inexpensive fabric and are easy to clean. The T-shirt evolved from undergarments used in the 19th century and, in the mid-20th century, transitioned from undergarments to general-use casual clothing...</p>
+                <span class="footer">mens</span>
+                </div>
+                
+            </div>
+        </div> 
+
+        <section class="home2" id="home2">
+          
+             </section>
+   <h1 class="head1">women's</h1>
+   <div class="main">
+    <div class="card">
+        <div class="img-holder">
+<img src="https://cdn.pixabay.com/photo/2024/05/18/18/34/ai-generated-8770838_640.jpg" class="img" alt="">
+        </div>
+        <div class="content">
+<span class="title">womens</span>
+<h3>womens offer for the dress</h3>
+<p>A T-shirt (also spelled tee shirt, or tee for short) is a style of fabric shirt named after the T shape of its body and sleeves. Traditionally, it has short sleeves and a round neckline, known as a crew neck, which lacks a collar. T-shirts are generally made of stretchy, light, and inexpensive fabric and are easy to clean. The T-shirt evolved from undergarments used in the 19th century and, in the mid-20th century, transitioned from undergarments to general-use casual clothing...</p>
+<span class="footer">womens</span>
+        </div>
+    </div>
+   </div>
+   
+   <section class="home3" id="home3">
+</section>    
+</section>
+<div class="footer"style="width: 100vw;">
+    <font>
+        <footer id="footer" class ="footer" style="background-color: rgb(48, 48, 68); padding: 30px; display: flex;justify-content: center;text-align: center;">
+            <p>prasath &copy; <span>shopping pages</span> rights</p>
+            
+                </footer>
+    </font>
+    
+</div>
+</div>
+</form>
+<script>
+
+var home=document.getElementById("home2")
+function create(event){
+let img=prompt("url")
+let price=prompt("price:₹")
+let Size=prompt("size")
+let heading=prompt("heading")
+if(!img)return
+if(!price)return 
+if(!Size)return
+if(!heading)return
+
+
+var imgsrc=document.createElement("img")
+    imgsrc.src=img;
+    imgsrc.innerHTML="<a href='/index.html'>hii</a>";
+imgsrc.alt="preview image"
+imgsrc.classList.add("image")
+ 
+ var  para=document.createElement("p");
+    para.innerHTML="<strong>price:₹</strong>"+price
+    para.classList.add("sizeprice");
+ 
+  var paragraph=document.createElement("p")
+    paragraph.innerHTML="<strong>Size:</strong>"+Size
+    paragraph.classList.add("size")
+ var head=document.createElement("h1")
+ head.innerHTML=heading 
+ head.classList.add("sizes")
+    
+ var heart=document.createElementNS("http://www.w3.org/2000/svg","svg")
+heart.setAttribute("width","24")
+heart.setAttribute("height","24")
+heart.setAttribute("viewBox","0 0 16 16")
+heart.setAttribute("fill","red")
+heart.innerHTML='<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>'
+ 
+var removeButton=document.createElement("button")
+removeButton.innerHTML="remove"
+removeButton.classList.add("bttn1")
+removeButton.onclick=function(){
+divlist.remove()
+}
+var divlist=document.createElement("div")
+divlist.classList.add("box1")
+divlist.appendChild(imgsrc)
+divlist.appendChild(para)
+divlist.appendChild(paragraph)
+divlist.appendChild(head)
+divlist.appendChild(heart)
+divlist.appendChild(removeButton)
+
+home.appendChild(divlist)
+const storage=JSON.parse(localStorage.getItem("storage"))||[];
+storage.push({img:img,price:price,Size:Size,heading:heading,heart:true})
+localStorage.setItem("storage",JSON.stringify(storage))
+
+}
+function loadStorage(){
+    var home=document.getElementById("home2")
+    var load=JSON.parse(localStorage.getItem("storage"))||[]
+    load.forEach((item)=>{
+
+var imgsrc=document.createElement("img")
+    imgsrc.src=item.img
+imgsrc.alt="preview image"
+imgsrc.classList.add("image")
+ 
+ var  para=document.createElement("p");
+    para.innerHTML="<strong>price:₹</strong>"+item.price
+    para.classList.add("sizeprice");
+ 
+  var paragraph=document.createElement("p")
+    paragraph.innerHTML="<strong>Size:</strong>"+item.Size
+    paragraph.classList.add("size")
+    var head=document.createElement("h1")
+ head.innerHTML=item.heading 
+ head.classList.add("sizes")
+var heart=document.createElementNS("http://www.w3.org/2000/svg","svg")
+heart.setAttribute("width","24")
+heart.setAttribute("height","24")
+heart.setAttribute("viewBox","0 0 16 16")
+heart.setAttribute("fill","black")
+heart.innerHTML='<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>'
+
+var removeButton=document.createElement("button")
+removeButton.innerHTML="remove"
+removeButton.classList.add("bttn1")
+removeButton.onclick=function(){
+divlist.remove()
+removestorage(item.img,item.price,item.Size,item.heading)
+}
+var divlist=document.createElement("div")
+divlist.classList.add("box1")
+divlist.appendChild(imgsrc)
+divlist.appendChild(para)
+divlist.appendChild(paragraph)
+divlist.appendChild(removeButton)
+divlist.appendChild(heart)
+divlist.appendChild(head)
+home.appendChild(divlist)
+
+    })
+}
+function removestorage(img,price,Size,heading){
+    let storage=JSON.parse(localStorage.getItem("storage"))||[]
+    storage = storage.filter(item=>!(item.img===img&&item.Size===Size&&item.price===price&&item.heading==heading));
+    localStorage.setItem("storage",JSON.stringify(storage))
+}
+var home1=document.getElementById("home3")
+function womens(event){
+
+    let url1=prompt("url:")
+    let price1=prompt("price:₹")
+    let size1=prompt("size:")
+    if(!url1)return
+    if(!price1)return
+    if(!size1)return
+    var imgsrc1=document.createElement("img")
+    imgsrc1.src=url1
+    imgsrc1.classList.add("image1")
+
+    var para1=document.createElement("p")
+    para1.innerHTML="<strong>price:₹</strong>"+price1
+        para1.classList.add("saveprice")
+
+        var para2=document.createElement("p")
+        para2.innerHTML="<strong>size:</strong>"+size1
+            para2.classList.add("size")
+
+            var removeButton1=document.createElement("button")
+            removeButton1.innerHTML="remove"
+            removeButton1.classList.add("bttn1")
+            removeButton1.onclick=function(){
+                divlist1.remove()
+            }
+var divlist1=document.createElement("div")
+divlist1.classList.add("box1")
+divlist1.appendChild(imgsrc1)
+divlist1.appendChild(para1)
+divlist1.appendChild(para2)
+divlist1.appendChild(removeButton1)
+home1.appendChild(divlist1)
+const storage1=JSON.parse(localStorage.getItem("storage1"))||[]
+storage1.push({url1:url1,price1:price1,size1:size1})
+localStorage.setItem("storage1",JSON.stringify(storage1))
+}
+function loadStorage1(){
+    var home1=document.getElementById("home3")
+    var load1=JSON.parse(localStorage.getItem("storage1"))||[]
+    load1.forEach((item)=>{
+        var imgsrc1=document.createElement("img")
+    imgsrc1.src=item.url1
+    imgsrc1.classList.add("image1")
+
+    var para1=document.createElement("p")
+    para1.innerHTML="<strong>price:₹</strong>"+item.price1
+        para1.classList.add("saveprice")
+
+        var para2=document.createElement("p")
+        para2.innerHTML="<strong>size:</strong>"+item.size1
+            para2.classList.add("size")
+
+            var removeButton1=document.createElement("button")
+            removeButton1.innerHTML="remove"
+            removeButton1.classList.add("bttn1")
+            removeButton1.onclick=function(){
+                divlist1.remove()
+removestorage1(item.url1,item.price1,item.size1);
+            }
+var divlist1=document.createElement("div")
+divlist1.classList.add("box1")
+divlist1.appendChild(imgsrc1)
+divlist1.appendChild(para1)
+divlist1.appendChild(para2)
+divlist1.appendChild(removeButton1)
+home1.appendChild(divlist1)
+    })
+}
+function removestorage1(url1,price1,size1){
+    let storage1=JSON.parse(localStorage.getItem("storage1"))||[]
+    storage1=storage1.filter(item=>!(item.url1===url1&&item.price1===price1&&item.size1===size1) )
+localStorage.setItem("storage1",JSON.stringify(storage1))
+}
+window.onload=function(){
+    loadStorage()
+    loadStorage1()
+}
+function object(){
+  window.location.href="index.html"
+}
+document.addEventListener("DOMContentLoaded",function(){
+    const searchbar=document.querySelector(".search")
+    const products=document.querySelector(".bttn")
+    const item=document.querySelectorAll(".box1")
+    function searchs(){
+    const input=document.getElementById("search").value.toLowerCase().trim()
+    item.forEach(item=>{
+        const itemtext=item.innerHTML.toLowerCase()
+        if (itemtext.includes(searchbar)) {
+                item.style.display = "flex"; // Show matching items
+            } else {
+                item.style.display = "none"; // Hide non-matching items
+            }
+    })
+
+}
+})
+function searchbar() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let text = card.innerText.toLowerCase();
+        if (text.includes(input)) {
+            card.style.display = "none";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+    const radios=document.querySelectorAll(".radio input[type='radio']")
+    const img1=document.getElementById("img1")
+    const img2=document.getElementById("img2")
+    const img3=document.getElementById("img3")
+    const img4=document.getElementById("img4")
+    radios.forEach((radio,index)=>{
+        radio.addEventListener("change",function(){
+
+        img1.style.display="none"
+        img2.style.display="none"
+        img3.style.display="none"
+        img4.style.display="none"
+        if(index==0)img1.style.display="block"
+        else if(index==1)img2.style.display="block"
+        else if(index==2)img3.style.display="block"
+        else if(index==3)img4.style.display="block"
+
+    })
+})
+
+})
+document.addEventListener("DOMContentLoaded",function(){
+    const tshirts=document.querySelectorAll("tshirt")
+    tshirts.forEach((tshirt)=>{
+        tshirt.addEventListener("click",function(){
+            window.location.href="temple.html"
+        })
+    })
+})
+document.getElementById("men").addEventListener("change",function(){
+    const selectOption=this.value
+    switch(selectOption){
+        case "shirt":
+        window.location.href="/temple"
+        break;
+case "jeans":
+    window.location.href="/jeans"
+    break;
+    
+    case "kurta":
+    window.location.href="/kurthi"
+    break;
+    case "pants":
+    window.location.href="/pants"
+    break;
+
+    default:
+            console.log("no page selected")
+    }
+})
+
+
+</script>
+</body>
+</html>

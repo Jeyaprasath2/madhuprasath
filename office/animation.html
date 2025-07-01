@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aqua;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            gap:30px;
+        }.box{
+            position: relative;
+            width: 350px;
+            height: 450px;
+            background-color: aliceblue;
+        }.box img{
+            position: absolute;
+            left:10px;
+            top:40px;
+            width: 350px;
+            height: 200px;
+            object-fit: contain;
+        }.box p{
+            position: absolute;
+            left:150px;
+            top:250px;
+        font-size: 30px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-weight: bolder;
+        }.box button{
+            position: absolute;
+            left: 130px;
+            top:350px;
+            padding: 10px 50px;
+            border: none;
+            background-color: lightgreen;
+            border-radius: 30px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bolder;
+            font-size: 20px;
+        }.remove{
+            position: absolute;
+            left: 5px;
+            top:0;
+            font-size: 30px;
+            font-weight: bolder;
+            font-style: italic;
+            font-family: Arial, Helvetica, sans-serif;
+        background-color: red;
+        padding: 1px 20px;
+        cursor: pointer;
+        }.remove:hover{
+            background: lightpink;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="home">
+        
+    </div>
+    <button onclick="create()">add</button>
+<script>
+    const home=document.getElementById("home")
+    function create(){
+        let img=prompt("enter the url")
+       
+        let price=prompt(" enter the price")
+        if(!img){
+            alert("not verified")
+            return}
+            alert("url successfully verified")
+        if(!price){
+            alert("not verified")
+            return}
+            alert("url successfully verified")
+        var imgsrc=document.createElement("img")
+        imgsrc.src=img
+        imgsrc.classList.add("img")
+       
+        var para=document.createElement("p")
+        para.innerHTML="<strong>₹</strong>"+price
+        para.classList.add("p")
+        
+        var removeButton=document.createElement("button")
+        removeButton.innerHTML="buy"
+ var button=document.createElement("span")
+ button.innerHTML="X"
+ button.classList.add("remove")
+ button.onclick=function(){
+    divlist.remove()
+ }
+        var divlist=document.createElement("div")
+        divlist.classList.add("box")
+        divlist.appendChild(imgsrc)
+        divlist.appendChild(para)
+        divlist.appendChild(removeButton)
+     divlist.appendChild(button)
+        home.appendChild(divlist)
+
+    }
+
+</script>
+</body>
+</html> 

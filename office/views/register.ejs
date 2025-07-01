@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: hsla(10, 100%, 50%, 0.322);
+            
+        }.container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }fieldset{
+            display: block;
+            width: 750px;
+            height: 450px;
+            text-align: center;
+            background: rgba(82, 81, 81, 0.3);
+       box-sizing: border-box;
+       box-shadow: 30px 20px ;
+            background: none;
+
+    }input{
+            width: 300px;
+            align-items: center;
+            padding: 10px 35px;
+            background: rgba(82, 81, 81, 0.3);
+            color: black;
+        }input:hover{
+ color: aliceblue;
+ background-color: rgba(69, 77, 77, 0.233);
+        }
+        button{
+            padding: 10px 35px;
+            background-color: lawngreen;
+            border-radius: 30px;
+            
+        }button:focus{
+            background-color: lightgreen;
+        }button:hover{
+            background-color: forestgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="container">
+            <form action="/registerform" method="POST">
+                <fieldset>
+                    <legend>register</legend>
+                    <label for="username">username:</label>
+                    <br>
+                    <input type="text" name="username" id="username">
+                    <br><br>
+                    
+                    <label for="createpassword">createpassword:</label>
+                    <br>
+                    <input type="password" name="pass1" id="password">
+                    <br><br>
+                    <label for="confirmpassword">confirmpassword:</label>
+                    <br>
+                    <input type="password" name="pass2" id="password1">
+         <br><br>
+                    <label for="email"> email:</label>
+                    <br>
+                    <input type="email" name="email" id="email">
+                    <br><br>
+                    <p  id="errormsg"></p>
+                    <button onclick="register()">register</button>
+
+                </fieldset>
+
+            </form>
+        </div>
+    </div>
+<script>
+    function register(){
+        let username=document.getElementById("username").value.trim()
+let password=document.getElementById("password").value.trim()
+let confirmpassword=document.getElementById("password1").value.trim()
+let email=document.getElementById("email").value.trim()
+let errormsg=document.getElementById("errormsg")
+if(!username||!password||!confirmpassword||!email){
+    errormsg.textContent="all are you required"
+    return
+}
+if(password.length < 8){
+    errormsg.textContent="password length is characters 8"
+return
+}if(password!==confirmpassword){
+    errormsg.textContent="password does not match"
+return
+}const emailpattern=/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+if(!emailpattern.test(email)){
+    errormsg.textContent="emails is invalid"
+return
+}
+const storeddetails={username,password,email}
+localStorage.setItem("storeddetails",JSON.stringify(storeddetails))
+alert("register successfully")
+    }
+</script>
+</body>
+</html>

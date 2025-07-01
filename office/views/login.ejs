@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+            body{
+            background-color: hsla(10, 100%, 50%, 0.322);
+            
+        }.container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }fieldset{
+            display: block;
+            width: 750px;
+            height: 450px;
+            text-align: center;
+            background: rgba(82, 81, 81, 0.3);
+       box-sizing: border-box;
+       box-shadow: 30px 20px ;
+            background: none;
+
+    }#username,#password{
+            width: 300px;
+            align-items: center;
+            padding: 10px 35px;
+            background: rgba(82, 81, 81, 0.3);
+            color: black;
+        }input:hover{
+ color: aliceblue;
+ background-color: rgba(69, 77, 77, 0.233);
+        }
+        button{
+            padding: 10px 35px;
+            background-color: lawngreen;
+            border-radius: 30px;
+            
+        }button:focus{
+            background-color: lightgreen;
+        }button:hover{
+            background-color: forestgreen;
+        }label{
+        color: chocolate;
+        font-size: 30px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin-top: 30px;
+    }button{
+        color: blanchedalmond;
+        background-color: lightgreen;
+        font-size: 30px;
+        padding: 5px 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }#forgot{
+        position: absolute;
+        right: 600px;
+        top:370px;
+    }
+    a{
+        text-decoration: none;
+        color: hwb(123 7% 11% / 0.788);
+font-size: 20px;    
+}h1{
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+            <h1>login page</h1>
+            <form id="login" action="/loginform" method="POST" >
+                <fieldset>
+                    <legend>login</legend>
+                    <p id="errormsg"></p>
+                           
+                    <label for="name">name:</label>
+           <br>
+                <input type="text" name="username" id="username" placeholder="username">
+                <br>
+                <label for="password">password:</label>
+                <br>
+                <input type="password" name="password"id="password" placeholder="password">
+                <br><br>
+                <input type="checkbox">remember me 
+                <br>
+<span><a href="#" id="forgot">forgotpassword</a></span>
+                <br>
+                <button  onclick="loginlist(event)">login</button>
+            <br>
+                <span id="register">make an account? <a href="/register">register?</a></span>
+<ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">Home</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Profile</button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Contact</button>
+  </li>
+</ul>
+                </fieldset>
+        </form>
+        </div>
+    </div>
+<script>
+    function loginlist(event){
+let username=document.getElementById("username").value.trim()
+let password=document.getElementById("password").value.trim()
+let errormsg=document.getElementById("errormsg")
+let storeddetails={username:"admin",password:"12345"}
+if(!username||!password){
+    errormsg.textContent="username or password not entered"
+return
+
+}
+if(username===username.storeddetails&&password===password.storeddetails){
+    alert("login successfully")
+
+}
+else{
+    errormsg.textContent="invalid user or password"
+}
+    }
+</script>
+</body>
+</html>

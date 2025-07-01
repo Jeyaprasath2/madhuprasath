@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+        body{
+        background-color: pink;
+    }.container{
+        width:100vw;
+        height: 100vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }.box{
+        width:750px;
+        height: 550px;
+        background-color: rgb(182, 37, 61);
+        text-align: center;
+    }form{
+        margin-top: 190px;
+    }input{
+        background-color: hwb(167 9% 83% / 0.26);
+        color: aqua;
+        padding: 10px 50px;
+        margin-top: 20px;
+    }label{
+        color: chocolate;
+        font-size: 30px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin-top: 30px;
+    }button{
+        color: blanchedalmond;
+        background-color: lightgreen;
+        font-size: 30px;
+        padding: 5px 50px;
+    }a{
+        text-decoration: none;
+        color: black;
+    }
+h1{
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>verifiy code</h1>
+            <form action="/verifyform" method="post">
+                <label for="verification">verify:</label>
+                <input type="text"name="verificationcode" id="verificationcode"placeholder="enter the code">
+                <br><br>
+                <button type="button" onclick="verifyotp()">verify otp</button>
+         <p id="errormsg"></p>
+            </form>
+        </div>
+    </div>
+<script>
+    function verifyotp(){
+        let verificationcode=document.getElementById("verificationcode").value.trim()
+        let entercode=JSON.parse(localStorage.getItem("verificationcode"))
+        let errormsg=document.getElementById("errormsg")
+if(!verificationcode){
+   errormsg.textContent="verification code invalid "
+}
+        if(verificationcode==entercode){
+        alert("verification code successfully")
+    window.location.href="/login"
+const storeddetails=JSON.parse(localStorage.getItem("storeddetails"))
+localStorage.setItem("verifiedUser",JSON.stringify(storeddetails))    
+}
+    else{
+        errormsg.textContent="invalid code"
+    }
+
+
+    }
+</script>
+</body>
+</html>
